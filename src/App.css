@@ -1,0 +1,7 @@
+.three-wrapper{
+  cursor: grab;
+}
+
+.grabbing {
+  cursor: grabbing;
+}
