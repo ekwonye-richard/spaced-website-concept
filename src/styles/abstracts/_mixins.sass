@@ -1,0 +1,148 @@
+// Center container relative to parent
+@mixin center-container
+    position: relative
+    top: 50%
+    left: 50%
+    @include translate(-50%, -50%)
+
+// Generic transform
+@mixin transform($transforms) 
+    -moz-transform: $transforms
+    -o-transform: $transforms
+    -ms-transform: $transforms
+    -webkit-transform: $transforms
+    transform: $transforms
+
+// rotate
+@mixin rotate ($deg) 
+    @include transform(rotate(#{$deg}deg))
+ 
+// scale
+@mixin scale($scale) 
+    @include transform(scale($scale))
+
+// translate
+@mixin translate ($x, $y) 
+    @include transform(translate($x, $y))
+
+// skew
+@mixin skew ($x, $y) 
+    @include transform(skew(#{$x}deg, #{$y}deg))
+
+//transform origin
+@mixin transform-origin ($origin) 
+    moz-transform-origin: $origin
+    -o-transform-origin: $origin
+    -ms-transform-origin: $origin
+    -webkit-transform-origin: $origin
+    transform-origin: $origin
+
+// Create a circle
+@mixin circle
+    @include border-radius($circle-radius)
+
+// Set transition property on element
+@mixin transition($property: all, $transitionDuration: $default-transition-duration, $timingFunction: ease-in, $delay: 0s)
+    -moz-transition    : $property $transitionDuration
+    -o-transition      : $property $transitionDuration
+    -webkit-transition : $property $transitionDuration
+    transition         : $property $transitionDuration
+    -moz-transition-timing-function    : $timingFunction
+    -o-transition-timing-function      : $timingFunction
+    -webkit-transition-timing-function : $timingFunction
+    transition-timing-function         : $timingFunction
+    -moz-transition-transition-delay : $delay
+    -o-transition-transition-delay   : $delay
+    -webkit-transition-delay         : $delay
+    transition-delay                 : $delay
+    
+
+//animation keyframe 
+@mixin keyframe ($animation_name)
+    @-webkit-keyframes #{$animation_name}
+        @content
+
+    @-moz-keyframes #{$animation_name}
+        @content
+
+    @-o-keyframes #{$animation_name}
+        @content
+
+    @keyframes #{$animation_name}
+        @content
+
+//animate element properties
+@mixin animation ($delay, $duration, $animation, $timingFunction, $iteration: 1)
+    -webkit-animation-delay: $delay
+    -webkit-animation-duration: $duration
+    -webkit-animation-name: $animation
+    -webkit-animation-timing-function: $timingFunction
+    -webkit-animation-iteration-count: $iteration
+    
+    -moz-animation-delay: $delay
+    -moz-animation-duration: $duration
+    -moz-animation-name: $animation
+    -moz-animation-timing-function: $timingFunction
+    -moz-animation-animation-iteration-count: $iteration
+
+    -o-animation-delay: $delay
+    -o-animation-duration: $duration
+    -o-animation-name: $animation
+    -o-animation-timing-function: $timingFunction
+    -o-animation-animation-iteration-count: $iteration
+
+    animation-delay: $delay
+    animation-duration: $duration
+    animation-name: $animation
+    animation-timing-function: $timingFunction
+    animation-iteration-count: $iteration
+
+// Apply media query for specied breakpoint
+@mixin respond-to($breakpoint)
+  @if $breakpoint == "size-xs"
+    @media (max-width: #{$size-sm})
+      @content
+
+  @if $breakpoint == "size-sm"
+    @media (min-width: #{$size-sm})
+      @content
+
+  @else if $breakpoint == "size-md"
+    @media (min-width: #{$size-md})
+      @content
+
+  @else if $breakpoint == "size-lg"
+    @media (min-width: #{$size-lg})
+      @content
+
+  @else if $breakpoint == "size-xl"
+    @media (min-width: #{$size-xl})
+      @content
+
+  @else if $breakpoint == "size-retina"
+    @media (min-width: #{$size-retina})
+      @content
+
+// Apply styles that are the same for hover|focus|active state for buttons
+@mixin hoverFocusActiveState
+    &:hover
+        @content
+    &:focus
+        @content
+    &:active
+        @content
+
+@mixin placeHolderStyle
+    &::-webkit-input-placeholder
+        @content
+    &:-ms-input-placeholder
+        @content
+    &::-moz-placeholder
+        @content
+    &:-moz-placeholder
+        @content
+
+@mixin ellipsis
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
