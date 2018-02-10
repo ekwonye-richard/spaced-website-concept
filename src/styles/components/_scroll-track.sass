@@ -1,0 +1,26 @@
+.scroll-track
+    position: fixed
+    width: $scroll-track-width
+    left: 0
+    z-index: 100
+    top: 50%
+    @include translate(0, -50%)
+
+    & > span
+        display: block
+        height: 1px
+        background: $white
+        margin: $spacing-20 $zero
+
+    .minor-bar
+        width: 15%
+
+    .major-bar
+        width: 40%
+
+    .active-bar
+        width: 100%
+        height: 2px
+        background: $mint
+        position: absolute
+        top: $spacing-10

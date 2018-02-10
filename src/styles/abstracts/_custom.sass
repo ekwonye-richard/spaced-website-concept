@@ -3,3 +3,44 @@
   font-family: montserrat
   font-weight: $bold-6
   letter-spacing: $spacing-10
+
+.location-widget
+  font-family: montserrat
+  letter-spacing: .3em
+  font-size: $medium-text
+  font-weight: $bold-6
+  position: absolute
+  top: 48%
+  right: -$spacing-120
+  @include rotate(90)
+
+  .loc-val
+    &:after
+      content: '.'
+      position: relative
+      bottom: .5em
+
+.equalizer
+  position: absolute
+  right: 0
+  @include translate(0, -$spacing-10)
+    
+  > span
+    &:before, &:after
+      content: ''
+      background: $white
+      width: 2px
+      display: inline-block
+      margin: 0 1px
+
+    &:first-child
+      &:before
+        height: .7em
+      &:after
+        height: .4em
+
+    &:last-child
+      &:before
+        height: 1em
+      &:after
+        height: .5em

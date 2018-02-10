@@ -6,6 +6,56 @@
   letter-spacing: 10px;
 }
 
+.location-widget {
+  font-family: montserrat;
+  letter-spacing: 0.3em;
+  font-size: 14px;
+  font-weight: 600;
+  position: absolute;
+  top: 48%;
+  right: -120px;
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.location-widget .loc-val:after {
+  content: '.';
+  position: relative;
+  bottom: 0.5em;
+}
+
+.equalizer {
+  position: absolute;
+  right: 0;
+  -moz-transform: translate(0, -10px);
+  -o-transform: translate(0, -10px);
+  -ms-transform: translate(0, -10px);
+  -webkit-transform: translate(0, -10px);
+  transform: translate(0, -10px);
+}
+.equalizer > span:before,
+.equalizer > span:after {
+  content: '';
+  background: #ffffff;
+  width: 2px;
+  display: inline-block;
+  margin: 0 1px;
+}
+.equalizer > span:first-child:before {
+  height: 0.7em;
+}
+.equalizer > span:first-child:after {
+  height: 0.4em;
+}
+.equalizer > span:last-child:before {
+  height: 1em;
+}
+.equalizer > span:last-child:after {
+  height: 0.5em;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -105,14 +155,14 @@ a:-moz-focusring {
 
 .landing-form {
   margin: 180px auto auto;
-  height: 570px;
+  height: 590px;
   min-height: calc(100vh - 325px);
-  width: 950px;
+  width: 990px;
   max-width: 100%;
   position: relative;
 }
 .landing-form .form-group {
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .hero-footer {
@@ -125,13 +175,14 @@ a:-moz-focusring {
   vertical-align: top;
 }
 .hero-footer .info-col:not(:last-child) {
-  margin-right: 100px;
+  margin-right: 120px;
 }
-.hero-footer .info-col h4 {
+.hero-footer .info-col h5 {
   letter-spacing: 0.25em;
 }
 .hero-footer .info-col > div {
-  margin-top: 15px;
+  margin-top: 10px;
+  color: #939393;
 }
 
 .scene-wrapper {
@@ -201,4 +252,36 @@ a:-moz-focusring {
 .control-wrapper .ctrl-bottom:after {
   bottom: -10px;
   right: -5px;
+}
+
+.scroll-track {
+  position: fixed;
+  width: 40px;
+  left: 0;
+  z-index: 100;
+  top: 50%;
+  -moz-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.scroll-track > span {
+  display: block;
+  height: 1px;
+  background: #ffffff;
+  margin: 20px 0;
+}
+.scroll-track .minor-bar {
+  width: 15%;
+}
+.scroll-track .major-bar {
+  width: 40%;
+}
+.scroll-track .active-bar {
+  width: 100%;
+  height: 2px;
+  background: #3ef1dc;
+  position: absolute;
+  top: 10px;
 }

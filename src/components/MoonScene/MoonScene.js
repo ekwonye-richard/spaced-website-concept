@@ -36,7 +36,7 @@ class MoonScene extends Component {
     const ambientLight = new THREE.AmbientLight(0xcccccc, 0.05);
     this.scene.add(ambientLight);
 
-    const spotLight = new THREE.SpotLight(0xffffff, 1);
+    const spotLight = new THREE.SpotLight(0xffffff, 1.2);
     // spotLight.position.set(590, 180, 90);
     spotLight.position.set(35000, 10000, -1200);
     spotLight.castShadow = true;

@@ -16,15 +16,15 @@ const LandingForm = ({ onSubmit }) => (
     </div>
     <div className="hero-footer">
       <div className="info-col">
-        <h4>NEW DESTINATION</h4>
+        <h5>NEW DESTINATION</h5>
         <div>Anouncing that we fly to the moon.</div>
       </div>
       <div className="info-col">
-        <h4>NEW DISCOUNT</h4>
+        <h5>NEW DISCOUNT</h5>
         <div>To mars and back for $199 whut?!</div>
       </div>
       <div className="info-col">
-        <h4>ABOUT THE SUITS</h4>
+        <h5>ABOUT THE SUITS</h5>
         <div>Our spacesuits are made by nike.</div>
       </div>
     </div>
