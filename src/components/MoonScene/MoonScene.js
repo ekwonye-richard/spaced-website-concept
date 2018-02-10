@@ -5,12 +5,14 @@ import OBJ from '../../shared/Moon_Model/moon.obj';
 import TXT_IMG from '../../shared/Moon_Model/MoonMap2_2500x1250.jpg';
 import BUMP_MAP from '../../shared/Moon_Model/moon-normal.jpg';
 
+const CANVAS_WIDTH = 1440;
+const CANVAS_HEIGHT = 800;
 class MoonScene extends Component {
   constructor() {
     super();
 
     this.animate = this.animate.bind(this);
-    this.modelIntro = this.modelIntro.bind(this);
+    this.modelAnimateIn = this.modelAnimateIn.bind(this);
     this.onMouseMove = this.onMouseMove.bind(this);
 
     const previousMousePosition = {
@@ -26,14 +28,14 @@ class MoonScene extends Component {
   componentDidMount() {
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(
-      30,
-      window.innerWidth / window.innerHeight,
+      34,
+      CANVAS_WIDTH / CANVAS_HEIGHT,
       1,
       2000
     );
 
     this.renderer = new THREE.WebGLRenderer();
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
     this.refs.threeWrapper.appendChild(this.renderer.domElement);
 
     this.camera.position.z = 150;
@@ -42,13 +44,13 @@ class MoonScene extends Component {
     this.scene.add(ambientLight);
 
     const spotLight = new THREE.SpotLight(0xffffff, 1);
-    spotLight.position.set(590, 180, 90);
-    // spotLight.position.set( 35000, 10000, -1200 );
+    // spotLight.position.set(590, 180, 90);
+    spotLight.position.set(35000, 10000, -1200);
     spotLight.castShadow = true;
     spotLight.penumbra = 0;
-    // spotLight.distance = 40000;
-    spotLight.distance = 5000;
-    spotLight.decay = 10;
+    spotLight.distance = 40000;
+    // spotLight.distance = 5000;
+    // spotLight.decay = 10;
 
     this.scene.add(spotLight);
 
@@ -80,7 +82,7 @@ class MoonScene extends Component {
 
       const moonObj = meshes[0];
       moonObj.name = 'moonModel';
-      moonObj.position.x = 18;
+      moonObj.position.x = 20;
       moonObj.rotation.x = 0.22;
       moonObj.rotation.y = -2;
 
@@ -99,16 +101,20 @@ class MoonScene extends Component {
     this.renderer.setPixelRatio(window.devicePixelRatio);
 
     this.animate();
-    this.modelIntro();
+    this.modelAnimateIn();
+
+    window.addEventListener('mousemove', this.onMouseMove);
   }
 
-  modelIntro() {
+  modelAnimateIn() {
     if (this.camera.position.z === 200) {
+      this.setState({ hasCompletedModelAnimateIn: true });
+
       return;
     }
 
     const model = this.scene.getObjectByName('moonModel');
-    requestAnimationFrame(this.modelIntro);
+    requestAnimationFrame(this.modelAnimateIn);
 
     if (model) {
       this.camera.position.z += 0.5;
@@ -123,23 +129,25 @@ class MoonScene extends Component {
   }
 
   onMouseMove(e) {
-    const model = this.scene.getObjectByName('moonModel');
-    const { previousMousePosition, isDragging } = this.state;
-    const { nativeEvent } = e;
+    const { previousMousePosition, hasCompletedModelAnimateIn } = this.state;
 
-    const deltaMove = {
-      x: nativeEvent.offsetX - previousMousePosition.x,
-      y: nativeEvent.offsetY - previousMousePosition.y
-    };
-
-    if (isDragging) {
-      model.rotation.x += deltaMove.y / 600;
-      model.rotation.y += deltaMove.x / 600;
+    if (!hasCompletedModelAnimateIn) {
+      return;
     }
 
+    const model = this.scene.getObjectByName('moonModel');
+
+    const deltaMove = {
+      x: e.offsetX - previousMousePosition.x,
+      y: e.offsetY - previousMousePosition.y
+    };
+
+    model.rotation.x += deltaMove.y / 1800;
+    model.rotation.y += deltaMove.x / 1800;
+
     const mousePosition = {
-      x: nativeEvent.offsetX,
-      y: nativeEvent.offsetY
+      x: e.offsetX,
+      y: e.offsetY
     };
 
     this.setState({
@@ -148,17 +156,7 @@ class MoonScene extends Component {
   }
 
   render() {
-    const { isDragging } = this.state;
-
-    return (
-      <div
-        className={`three-wrapper ${isDragging ? 'grabbing' : ''}`}
-        ref="threeWrapper"
-        onMouseMove={this.onMouseMove}
-        onMouseDown={() => this.setState({ isDragging: true })}
-        onMouseUp={() => this.setState({ isDragging: false })}
-      />
-    );
+    return <div className="scene-wrapper" ref="threeWrapper" />;
   }
 }
 

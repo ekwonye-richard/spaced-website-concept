@@ -3,7 +3,7 @@ import Main from './containers/Main';
 import './App.css';
 
 const App = () => (
-  <div className="App">
+  <div className="app">
     <Main />
   </div>
 );

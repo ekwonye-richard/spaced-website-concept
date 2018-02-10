@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
-.grabbing {
-  cursor: grabbing;
+.mega-text {
+  font-size: 58px;
+  font-family: montserrat;
+  font-weight: 600;
+  letter-spacing: 10px;
 }
 
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: Avenir Next, -apple-system, system-ui, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  color: #ffffff;
 }
 
 iframe {
@@ -35,6 +38,97 @@ a:-moz-focusring {
   text-shadow: 0 0 0 #000;
 }
 
-.three-wrapper {
-  cursor: grab;
+.app-header {
+  z-index: 10;
+}
+
+.app-title {
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+  letter-spacing: 15px;
+}
+.app-title h2 {
+  cursor: pointer;
+}
+
+.top-nav {
+  display: inline-block;
+  vertical-align: top;
+  width: 70%;
+  text-align: center;
+  padding-top: 0.2em;
+}
+.top-nav .menu-item {
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  padding: 0 15px;
+  cursor: pointer;
+}
+.top-nav .menu-item:not(:first-child) {
+  margin-left: 15px;
+}
+.top-nav .menu-item:not(:last-child) {
+  margin-right: 15px;
+}
+
+.search-control {
+  display: inline-block;
+  vertical-align: top;
+  width: 10%;
+  text-align: right;
+  margin-top: 0.5em;
+}
+.search-control img {
+  width: 1.5em;
+  cursor: pointer;
+}
+
+.app {
+  color: #ffffff;
+  background: #000000;
+  min-height: 100vh;
+}
+
+.main-container {
+  position: relative;
+  padding: 65px 75px;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 5;
+}
+
+.landing-form {
+  margin: 180px 0 25px 200px;
+}
+.landing-form .form-group {
+  margin-top: 40px;
+}
+
+.scene-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.control-wrapper {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: inline-block;
+  padding: 30px 30px;
+  margin-right: 20px;
+}
+.control-wrapper.select-wrapper {
+  width: 240px;
+  background: rgba(255, 255, 255, 0.05);
+}
+.control-wrapper.button-wrapper {
+  border-color: rgba(62, 241, 220, 0.25);
+  background: rgba(62, 241, 220, 0.02);
 }
