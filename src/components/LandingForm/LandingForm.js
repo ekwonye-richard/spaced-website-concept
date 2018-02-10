@@ -12,7 +12,21 @@ const LandingForm = ({ onSubmit }) => (
     <div className="form-group">
       <Select default="1 adult" />
       <Select default="Mars" />
-      <Button>Go</Button>
+      <Button>GO</Button>
+    </div>
+    <div className="hero-footer">
+      <div className="info-col">
+        <h4>NEW DESTINATION</h4>
+        <div>Anouncing that we fly to the moon.</div>
+      </div>
+      <div className="info-col">
+        <h4>NEW DISCOUNT</h4>
+        <div>To mars and back for $199 whut?!</div>
+      </div>
+      <div className="info-col">
+        <h4>ABOUT THE SUITS</h4>
+        <div>Our spacesuits are made by nike.</div>
+      </div>
     </div>
   </div>
 );

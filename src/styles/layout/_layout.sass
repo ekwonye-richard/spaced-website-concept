@@ -6,13 +6,37 @@
 .main-container
     position: relative
     padding: $spacing-65 $spacing-75
+    overflow: hidden
     
 .content-wrapper
     position: relative
     z-index: 5
 
 .landing-form
-    margin: $spacing-180 $zero $spacing-25 $spacing-200
+    margin: $spacing-180 auto auto
+    height: $landing-form-height
+    min-height: calc(100vh - #{$spacing-250 + $spacing-75})
+    width: $landing-form-width 
+    max-width: 100%
+    position: relative
 
     .form-group
         margin-top: $spacing-40
+
+.hero-footer
+    position: absolute
+    width: 100%
+    bottom: 0
+
+    .info-col
+        display: inline-block
+        vertical-align: top
+
+        &:not(:last-child)
+            margin-right: $spacing-100
+
+        h4
+            letter-spacing: .25em
+
+        & > div
+            margin-top: $spacing-15

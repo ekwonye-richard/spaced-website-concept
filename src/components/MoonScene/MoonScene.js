@@ -6,7 +6,7 @@ import TXT_IMG from '../../shared/Moon_Model/MoonMap2_2500x1250.jpg';
 import BUMP_MAP from '../../shared/Moon_Model/moon-normal.jpg';
 
 const CANVAS_WIDTH = 1440;
-const CANVAS_HEIGHT = 800;
+const CANVAS_HEIGHT = 1050;
 class MoonScene extends Component {
   constructor() {
     super();
@@ -15,14 +15,7 @@ class MoonScene extends Component {
     this.modelAnimateIn = this.modelAnimateIn.bind(this);
     this.onMouseMove = this.onMouseMove.bind(this);
 
-    const previousMousePosition = {
-      x: 0,
-      y: 0
-    };
-
-    this.state = {
-      previousMousePosition
-    };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -38,7 +31,7 @@ class MoonScene extends Component {
     this.renderer.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
     this.refs.threeWrapper.appendChild(this.renderer.domElement);
 
-    this.camera.position.z = 150;
+    this.camera.position.z = 215;
 
     const ambientLight = new THREE.AmbientLight(0xcccccc, 0.05);
     this.scene.add(ambientLight);
@@ -83,6 +76,7 @@ class MoonScene extends Component {
       const moonObj = meshes[0];
       moonObj.name = 'moonModel';
       moonObj.position.x = 20;
+      moonObj.position.y = 15;
       moonObj.rotation.x = 0.22;
       moonObj.rotation.y = -2;
 
@@ -107,7 +101,7 @@ class MoonScene extends Component {
   }
 
   modelAnimateIn() {
-    if (this.camera.position.z === 200) {
+    if (this.camera.position.z === 250) {
       this.setState({ hasCompletedModelAnimateIn: true });
 
       return;
@@ -135,19 +129,21 @@ class MoonScene extends Component {
       return;
     }
 
-    const model = this.scene.getObjectByName('moonModel');
+    if (previousMousePosition) {
+      const model = this.scene.getObjectByName('moonModel');
 
-    const deltaMove = {
-      x: e.offsetX - previousMousePosition.x,
-      y: e.offsetY - previousMousePosition.y
-    };
+      const deltaMove = {
+        x: e.screenX - previousMousePosition.x,
+        y: e.screenY - previousMousePosition.y
+      };
 
-    model.rotation.x += deltaMove.y / 1800;
-    model.rotation.y += deltaMove.x / 1800;
+      model.rotation.x += deltaMove.y / 2300;
+      model.rotation.y += deltaMove.x / 2300;
+    }
 
     const mousePosition = {
-      x: e.offsetX,
-      y: e.offsetY
+      x: e.screenX,
+      y: e.screenY
     };
 
     this.setState({

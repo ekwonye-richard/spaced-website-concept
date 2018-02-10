@@ -1,13 +1,58 @@
 .control-wrapper
     border: $thin-border solid transparentize($white, 0.6)
     display: inline-block
-    padding: $spacing-30 $spacing-30 
+    vertical-align: top
+    height: $control-wrapper-height
+    padding: $spacing-30 $spacing-45 
     margin-right: $spacing-20
+    position: relative
+    background: transparentize($white, 0.95)
+    cursor: pointer
 
-    &.select-wrapper
+    &.btn
+        font-weight: $bold-6
+        font-size: $small-text
+        letter-spacing: .3em
+        padding-top: calc(#{$spacing-30} + .25em)
+
+    &.select-dropdown
         width: $select-width
-        background: transparentize($white, 0.95)
-
-    &.button-wrapper
+        font-size: $large-text
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCAzMC43MjcgMzAuNzI3IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMC43MjcgMzAuNzI3OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PHBhdGggZD0iTTI5Ljk5NCwxMC4xODNMMTUuMzYzLDI0LjgxMkwwLjczMywxMC4xODRjLTAuOTc3LTAuOTc4LTAuOTc3LTIuNTYxLDAtMy41MzZjMC45NzctMC45NzcsMi41NTktMC45NzYsMy41MzYsMCAgIGwxMS4wOTUsMTEuMDkzTDI2LjQ2MSw2LjY0N2MwLjk3Ny0wLjk3NiwyLjU1OS0wLjk3NiwzLjUzNSwwQzMwLjk3MSw3LjYyNCwzMC45NzEsOS4yMDYsMjkuOTk0LDEwLjE4M3oiIGZpbGw9IiNGRkZGRkYiLz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PC9zdmc+)
+        background-size: .5em
+        background-repeat: no-repeat
+        background-position: 80% 50%
+    
+    &.mint-control
         border-color: transparentize($mint, 0.75)
         background: transparentize($mint, 0.98)
+
+        [class^="ctrl-"]
+            &:before, &:after
+                color: transparentize($mint, 0.2)
+
+    [class^="ctrl-"]
+        &:before, &:after
+            content: "+"
+            position: absolute
+            font-weight: $bold-4
+            letter-spacing: 0
+            font-family: montserrat
+            font-size: $plus-size
+            color: transparentize($white, 0.2)
+
+    .ctrl-top:before
+        top: -$spacing-10
+        left: -$spacing-5
+
+    .ctrl-top:after
+        top: -$spacing-10
+        right: -$spacing-5
+
+    .ctrl-bottom:before
+        bottom: -$spacing-10
+        left: -$spacing-5
+
+    .ctrl-bottom:after
+        bottom: -$spacing-10
+        right: -$spacing-5

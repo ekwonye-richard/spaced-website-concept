@@ -10,8 +10,10 @@ class Select extends Component {
   }
   render() {
     return (
-      <div className="control-wrapper select-wrapper">
+      <div className="control-wrapper select-dropdown">
         <span>{this.state.selected}</span>
+        <span className="ctrl-top" />
+        <span className="ctrl-bottom" />
       </div>
     );
   }
