@@ -185,6 +185,177 @@ a:-moz-focusring {
   color: #939393;
 }
 
+.main-loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.main-loader > div {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.main-loader h4 {
+  letter-spacing: 0.6em;
+}
+.main-loader span {
+  position: relative;
+  margin-top: 55px;
+  display: inline-block;
+  width: 240px;
+  text-align: left;
+}
+.main-loader span:before {
+  background-image: linear-gradient(
+    rgba(62, 241, 220, 0.3),
+    rgba(62, 241, 220, 0.3)
+  );
+  background-size: 0% 0.11em;
+  -webkit-animation-delay: 1.1s;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-name: minor-bar-animation;
+  -webkit-animation-timing-function: cubic-bezier(0.39, 0.29, 0, 0.9);
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-delay: 1.1s;
+  -moz-animation-duration: 1.5s;
+  -moz-animation-name: minor-bar-animation;
+  -moz-animation-timing-function: cubic-bezier(0.39, 0.29, 0, 0.9);
+  -moz-animation-animation-iteration-count: 1;
+  -o-animation-delay: 1.1s;
+  -o-animation-duration: 1.5s;
+  -o-animation-name: minor-bar-animation;
+  -o-animation-timing-function: cubic-bezier(0.39, 0.29, 0, 0.9);
+  -o-animation-animation-iteration-count: 1;
+  animation-delay: 1.1s;
+  animation-duration: 1.5s;
+  animation-name: minor-bar-animation;
+  animation-timing-function: cubic-bezier(0.39, 0.29, 0, 0.9);
+  animation-iteration-count: 1;
+}
+.main-loader span:after {
+  text-align: right;
+  background-image: linear-gradient(#3ef1dc, #3ef1dc);
+  background-size: 0% 0.11em;
+  -webkit-animation-delay: 1.1s;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-name: major-bar-animation;
+  -webkit-animation-timing-function: cubic-bezier(0.08, 0.37, 1, 1);
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-delay: 1.1s;
+  -moz-animation-duration: 1.5s;
+  -moz-animation-name: major-bar-animation;
+  -moz-animation-timing-function: cubic-bezier(0.08, 0.37, 1, 1);
+  -moz-animation-animation-iteration-count: 1;
+  -o-animation-delay: 1.1s;
+  -o-animation-duration: 1.5s;
+  -o-animation-name: major-bar-animation;
+  -o-animation-timing-function: cubic-bezier(0.08, 0.37, 1, 1);
+  -o-animation-animation-iteration-count: 1;
+  animation-delay: 1.1s;
+  animation-duration: 1.5s;
+  animation-name: major-bar-animation;
+  animation-timing-function: cubic-bezier(0.08, 0.37, 1, 1);
+  animation-iteration-count: 1;
+}
+.main-loader span:before,
+.main-loader span:after {
+  content: '+';
+  color: #3ef1dc;
+  font-weight: 600;
+  font-size: 14px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: 0.25em 0.67em;
+  background-repeat: no-repeat;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes minor-bar-animation {
+  0% {
+    background-size: 0% 0.11em;
+  }
+  100% {
+    background-size: 100% 0.11em;
+  }
+}
+
+@-moz-keyframes minor-bar-animation {
+  0% {
+    background-size: 0% 0.11em;
+  }
+  100% {
+    background-size: 100% 0.11em;
+  }
+}
+
+@-o-keyframes minor-bar-animation {
+  0% {
+    background-size: 0% 0.11em;
+  }
+  100% {
+    background-size: 100% 0.11em;
+  }
+}
+
+@keyframes minor-bar-animation {
+  0% {
+    background-size: 0% 0.11em;
+  }
+  100% {
+    background-size: 100% 0.11em;
+  }
+}
+
+@-webkit-keyframes major-bar-animation {
+  0%,
+  30% {
+    background-size: 0% 0.11em;
+  }
+  100% {
+    background-size: 100% 0.11em;
+  }
+}
+
+@-moz-keyframes major-bar-animation {
+  0%,
+  30% {
+    background-size: 0% 0.11em;
+  }
+  100% {
+    background-size: 100% 0.11em;
+  }
+}
+
+@-o-keyframes major-bar-animation {
+  0%,
+  30% {
+    background-size: 0% 0.11em;
+  }
+  100% {
+    background-size: 100% 0.11em;
+  }
+}
+
+@keyframes major-bar-animation {
+  0%,
+  30% {
+    background-size: 0% 0.11em;
+  }
+  100% {
+    background-size: 100% 0.11em;
+  }
+}
+
 .scene-wrapper {
   position: absolute;
   top: 0;

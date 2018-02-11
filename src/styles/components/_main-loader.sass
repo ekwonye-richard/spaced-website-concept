@@ -1,0 +1,58 @@
+.main-loader
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+
+    & > div
+        text-align: center
+        @include center-container
+
+    h4
+        letter-spacing: .6em
+
+    span
+        position: relative
+        margin-top: $spacing-55
+        display: inline-block
+        width: $main-loader-bar-width
+        text-align: left
+
+        &:before
+            background-image: linear-gradient(transparentize($mint, 0.7), transparentize($mint, 0.7))
+            background-size: 0% .11em
+            @include animation(1.1s, 1.5s, minor-bar-animation, cubic-bezier(.39,.29,0,.90))
+
+        &:after
+            text-align: right
+            background-image: linear-gradient($mint, $mint)
+            background-size: 0% .11em
+            @include animation(1.1s, 1.5s, major-bar-animation, cubic-bezier(.08,.37,1,1))
+
+        &:before, &:after
+            content: '+'
+            color: $mint
+            font-weight: $bold-6
+            font-size: $medium-text
+            position: absolute
+            left: 0      
+            width: 100%  
+            background-repeat: no-repeat
+            background-position: .25em 0.67em
+            background-repeat: no-repeat
+            animation-fill-mode: forwards
+
+@include keyframe(minor-bar-animation)
+	0%
+        background-size: 0% .11em
+
+	100%
+        background-size: 100% .11em
+
+@include keyframe(major-bar-animation)
+	0%, 30%
+        background-size: 0% .11em
+
+	100%
+        background-size: 100% .11em

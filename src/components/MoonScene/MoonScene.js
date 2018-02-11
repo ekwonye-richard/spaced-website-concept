@@ -151,6 +151,10 @@ class MoonScene extends Component {
     });
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('mousemove', this.onMouseMove);
+  }
+
   render() {
     return <div className="scene-wrapper" ref="threeWrapper" />;
   }
