@@ -20,17 +20,43 @@
     max-width: 100%
     position: relative
 
+    & > *
+        width: $landing-form-width
+        overflow: hidden
+
+    .mega-text
+        @include animation(0s, 1.4s, mega-text-animation, cubic-bezier(0,.25,.55,1))
+        
+        & > div
+            width: $landing-form-width
+
     .form-group
         margin-top: $spacing-60
+        @include animation(0s, 1.5s, landing-form-animation, cubic-bezier(0,.25,.55,1))
+
+        & > div
+            width: $landing-form-width
 
 .hero-footer
     position: absolute
     width: 100%
     bottom: 0
-
+    
     .info-col
         display: inline-block
         vertical-align: top
+        position: relative
+        top: $spacing-50
+        animation-fill-mode: forwards
+
+        &:nth-child(1)
+            @include animation(1.2s, .3s, hero-footer-animation, ease-out)
+
+        &:nth-child(2)
+            @include animation(1.3s, .3s, hero-footer-animation, ease-out)
+
+        &:nth-child(3)
+            @include animation(1.4s, .3s, hero-footer-animation, ease-out)
 
         &:not(:last-child)
             margin-right: $spacing-120
@@ -41,3 +67,26 @@
         & > div
             margin-top: $spacing-10
             color: $ash
+
+@include keyframe(mega-text-animation)
+	0%
+        width: 0
+
+	100%
+        width: $landing-form-width
+
+@include keyframe(landing-form-animation)
+	0%, 20%
+        width: 0
+
+	100%
+        width: $landing-form-width
+
+@include keyframe(hero-footer-animation)
+	0%
+        opacity: 0
+        top: $spacing-50
+
+	100%
+        opacity: 1
+        top: 0

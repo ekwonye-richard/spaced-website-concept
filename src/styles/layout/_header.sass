@@ -1,5 +1,9 @@
 .app-header
     z-index: 10
+    position: relative
+    opacity: 0
+    @include animation(.8s, .3s, header-animation, ease-out)
+    animation-fill-mode: forwards
 
 .app-title
     display: inline-block
@@ -42,5 +46,11 @@
         width: 1.5em
         cursor: pointer
         
+@include keyframe(header-animation)
+	0%
+        opacity: 0.4
+        bottom: $spacing-40
 
-
+	100%
+        opacity: 1
+        bottom: $zero

@@ -15,7 +15,9 @@ class MoonScene extends Component {
     this.modelAnimateIn = this.modelAnimateIn.bind(this);
     this.onMouseMove = this.onMouseMove.bind(this);
 
-    this.state = {};
+    this.state = {
+      wrapperClass: ''
+    };
   }
 
   componentDidMount() {
@@ -95,6 +97,7 @@ class MoonScene extends Component {
     this.renderer.setPixelRatio(window.devicePixelRatio);
 
     this.animate();
+    this.props.isReady && this.modelAnimateIn();
     window.addEventListener('mousemove', this.onMouseMove);
   }
 
@@ -151,6 +154,9 @@ class MoonScene extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.isReady && !prevProps.isReady) {
+      this.setState({
+        wrapperClass: 'show-wrapper'
+      });
       this.modelAnimateIn();
     }
   }
@@ -160,7 +166,12 @@ class MoonScene extends Component {
   }
 
   render() {
-    return <div className="scene-wrapper" ref="threeWrapper" />;
+    return (
+      <div
+        className={`scene-wrapper ${this.state.wrapperClass}`}
+        ref="threeWrapper"
+      />
+    );
   }
 }
 

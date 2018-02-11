@@ -5,14 +5,18 @@ import Button from '../Button';
 const LandingForm = ({ onSubmit }) => (
   <div className="landing-form">
     <div className="mega-text">
-      TO SPACE <br />
-      AND BACK, <br />
-      SAFELY.
+      <div>
+        TO SPACE <br />
+        AND BACK, <br />
+        SAFELY.
+      </div>
     </div>
     <div className="form-group">
-      <Select default="1 adult" />
-      <Select default="Mars" />
-      <Button>GO</Button>
+      <div>
+        <Select default="1 adult" />
+        <Select default="Mars" />
+        <Button>GO</Button>
+      </div>
     </div>
     <div className="hero-footer">
       <div className="info-col">

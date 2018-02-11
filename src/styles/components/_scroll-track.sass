@@ -2,9 +2,12 @@
     position: fixed
     width: $scroll-track-width
     left: 0
+    opacity: 0
     z-index: 100
     top: 50%
     @include translate(0, -50%)
+    @include animation(.8s, .3s, scroll-track-animation, ease-out)
+    animation-fill-mode: forwards
 
     & > span
         display: block
@@ -20,8 +23,26 @@
         width: 40%
 
     .active-bar
-        width: 100%
+        width: 0
         height: 2px
         background: $mint
         position: absolute
         top: $spacing-10
+        @include animation(1.5s, .3s, active-bar-animation, ease-out)
+        animation-fill-mode: forwards
+
+@include keyframe(scroll-track-animation)
+	0%
+        opacity: 0.4
+        left: -$scroll-track-width
+
+	100%
+        opacity: 1
+        left: 0
+
+@include keyframe(active-bar-animation)
+	0%
+        width: 0
+
+	100%
+        width: 100%

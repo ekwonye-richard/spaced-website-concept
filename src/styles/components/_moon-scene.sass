@@ -5,3 +5,14 @@
   bottom: 0
   left: 0
   z-index: 0
+
+.show-wrapper
+  @include animation(0s, 1.8s, scene-wrapper-animation, ease-in)
+
+
+@include keyframe(scene-wrapper-animation)
+	0%
+    opacity: 0
+
+	100%
+    opacity: 1

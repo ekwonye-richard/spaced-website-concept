@@ -7,7 +7,7 @@ import ScrollTrack from '../../components/ScrollTrack';
 const Landing = ({ isLoading }) => (
   <React.Fragment>
     <MoonScene isReady={!isLoading} />
-    <div className="content-wrapper">
+    <div className={`content-wrapper ${isLoading ? 'hidden' : ''}`}>
       <Header />
       <LandingForm />
       <div className="location-widget">
