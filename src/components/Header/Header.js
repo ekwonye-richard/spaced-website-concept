@@ -1,10 +1,16 @@
 import React from 'react';
 import searchIcon from '../../shared/images/search.svg';
 
-const Header = () => (
+const Header = ({ gotoLanding }) => (
   <header className="app-header">
     <div className="app-title">
-      <h2>SPACED</h2>
+      <h2
+        onClick={() => {
+          gotoLanding && gotoLanding();
+        }}
+      >
+        SPACED
+      </h2>
     </div>
     <div className="top-nav">
       <span className="menu-item">HOME</span>

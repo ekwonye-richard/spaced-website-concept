@@ -166,9 +166,12 @@ class MoonScene extends Component {
   }
 
   render() {
+    const { beginExit } = this.props;
     return (
       <div
-        className={`scene-wrapper ${this.state.wrapperClass}`}
+        className={`scene-wrapper ${this.state.wrapperClass} ${
+          beginExit ? 'begin-exit' : ''
+        }`}
         ref="threeWrapper"
       />
     );

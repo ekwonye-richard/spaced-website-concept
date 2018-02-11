@@ -15,7 +15,7 @@ const LandingForm = ({ onSubmit }) => (
       <div>
         <Select default="1 adult" />
         <Select default="Mars" />
-        <Button>GO</Button>
+        <Button onClick={onSubmit}>GO</Button>
       </div>
     </div>
     <div className="hero-footer">

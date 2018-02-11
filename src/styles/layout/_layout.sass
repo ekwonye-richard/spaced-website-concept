@@ -31,11 +31,12 @@
             width: $landing-form-width
 
     .form-group
-        margin-top: $spacing-60
+        margin-top: $spacing-65
         @include animation(0s, 1.5s, landing-form-animation, cubic-bezier(0,.25,.55,1))
 
         & > div
             width: $landing-form-width
+            padding: $spacing-5
 
 .hero-footer
     position: absolute
@@ -68,6 +69,27 @@
             margin-top: $spacing-10
             color: $ash
 
+
+.begin-exit
+    &.landing-wrapper
+        @include transition(all, .5s, ease-out)
+        opacity: 0
+    *
+        @include transition(all, .5s, ease-out)
+
+    .app-header
+        @include translate(0, -$spacing-40)
+
+    .hero-footer
+        bottom: -$spacing-50
+
+    .scroll-track
+        @include translate(-$scroll-track-width, -50%)
+
+    .equalizer
+        @include translate(0, $spacing-15)
+
+            
 @include keyframe(mega-text-animation)
 	0%
         width: 0

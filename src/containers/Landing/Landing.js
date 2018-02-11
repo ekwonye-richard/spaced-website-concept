@@ -4,12 +4,16 @@ import Header from '../../components/Header';
 import LandingForm from '../../components/LandingForm';
 import ScrollTrack from '../../components/ScrollTrack';
 
-const Landing = ({ isLoading }) => (
+const Landing = ({ isLoading, gotoNext, beginExit, gotoLanding }) => (
   <React.Fragment>
-    <MoonScene isReady={!isLoading} />
-    <div className={`content-wrapper ${isLoading ? 'hidden' : ''}`}>
+    <MoonScene isReady={!isLoading} beginExit={beginExit} />
+    <div
+      className={`landing-wrapper content-wrapper ${
+        isLoading ? 'hidden' : ''
+      } ${beginExit ? 'begin-exit' : ''}`}
+    >
       <Header />
-      <LandingForm />
+      <LandingForm onSubmit={gotoNext} />
       <div className="location-widget">
         <span className="loc-val">40.645477</span>,{' '}
         <span className="loc-val">-73.781187</span>

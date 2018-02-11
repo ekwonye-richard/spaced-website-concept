@@ -5,10 +5,13 @@
   bottom: 0
   left: 0
   z-index: 0
+  @include transition(all, .5s, ease-out)
+
+  &.begin-exit
+    opacity: 0
 
 .show-wrapper
   @include animation(0s, 1.8s, scene-wrapper-animation, ease-in)
-
 
 @include keyframe(scene-wrapper-animation)
 	0%
