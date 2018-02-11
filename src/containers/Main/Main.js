@@ -28,7 +28,9 @@ class Main extends Component {
       <div className="main-container">
         {progress === 'loading' && <MainLoader />}
 
-        {progress === 'landing' && <Landing />}
+        {(progress === 'loading' || progress === 'landing') && (
+          <Landing isLoading={progress === 'loading'} />
+        )}
       </div>
     );
   }

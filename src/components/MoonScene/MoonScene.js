@@ -95,8 +95,6 @@ class MoonScene extends Component {
     this.renderer.setPixelRatio(window.devicePixelRatio);
 
     this.animate();
-    this.modelAnimateIn();
-
     window.addEventListener('mousemove', this.onMouseMove);
   }
 
@@ -149,6 +147,12 @@ class MoonScene extends Component {
     this.setState({
       previousMousePosition: mousePosition
     });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.isReady && !prevProps.isReady) {
+      this.modelAnimateIn();
+    }
   }
 
   componentWillUnmount() {

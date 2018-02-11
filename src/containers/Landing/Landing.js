@@ -4,9 +4,9 @@ import Header from '../../components/Header';
 import LandingForm from '../../components/LandingForm';
 import ScrollTrack from '../../components/ScrollTrack';
 
-const Landing = () => (
+const Landing = ({ isLoading }) => (
   <React.Fragment>
-    <MoonScene />
+    <MoonScene isReady={!isLoading} />
     <div className="content-wrapper">
       <Header />
       <LandingForm />

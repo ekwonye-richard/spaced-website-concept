@@ -191,6 +191,8 @@ a:-moz-focusring {
   right: 0;
   bottom: 0;
   left: 0;
+  background: #000000;
+  z-index: 2000;
 }
 .main-loader > div {
   text-align: center;
