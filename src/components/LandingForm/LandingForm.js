@@ -2,7 +2,7 @@ import React from 'react';
 import Select from '../Select';
 import Button from '../Button';
 
-const LandingForm = ({ onSubmit }) => (
+const LandingForm = () => (
   <div className="landing-form">
     <div className="mega-text">
       <div>
@@ -15,7 +15,7 @@ const LandingForm = ({ onSubmit }) => (
       <div>
         <Select default="1 adult" />
         <Select default="Mars" />
-        <Button onClick={onSubmit}>GO</Button>
+        <Button>GO</Button>
       </div>
     </div>
     <div className="hero-footer">

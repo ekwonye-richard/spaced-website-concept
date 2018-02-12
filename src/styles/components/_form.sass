@@ -56,3 +56,143 @@
     .ctrl-bottom:after
         bottom: -$spacing-10
         right: -$spacing-5
+
+.form-progress
+    display: inline-block
+    vertical-align: top
+    width: 60%
+    position: relative
+
+    .progress-rows
+        width: ($form-progress-row * 4) + $spacing-10
+        margin: $spacing-5 auto
+
+        span
+            display: inline-block
+            width: $form-progress-row
+            height: 1px
+            background: linear-gradient(transparentize($mint, 0.75), transparentize($mint, 0.75)) no-repeat no-repeat
+            background-size: 100%
+            font-family: montserrat
+            position: relative
+
+            &:before
+                content: '+'
+                color: $mint
+                position: absolute
+                bottom: -.55em
+
+            &:last-child
+                &:after
+                    content: '+'
+                    color: $white
+                    position: absolute
+                    bottom: -.55em
+                    right: 0
+
+        &.is-first
+            span
+                background: linear-gradient(transparentize($white, 0.6), transparentize($white, 0.6)) no-repeat
+
+                &:before
+                    color: $white
+            
+            & + span
+                left: $spacing-5 + $form-progress-row
+
+        &.is-second
+            span:nth-child(1)
+                background-size: 91% 1px
+
+                & + span
+                    background-size: 88% 1px
+                    background-position: right
+
+                    &:before
+                        display: none
+                
+                & ~ *
+                    background: linear-gradient(transparentize($white, 0.6), transparentize($white, 0.6)) no-repeat
+
+                    &:before
+                        color: $white
+
+            & + span
+                left: $spacing-5 + $form-progress-row
+
+        &.is-third
+            span:nth-child(2) 
+                background-size: 91% 1px
+
+                & + span
+                    background-size: 88% 1px
+                    background-position: right
+
+                    &:before
+                        display: none
+                
+                & ~ *
+                    background: linear-gradient(transparentize($white, 0.6), transparentize($white, 0.6)) no-repeat
+
+                    &:before
+                        color: $white
+
+            & + span
+                left: $spacing-5 + ($form-progress-row * 2)
+
+        &.is-fourth
+            span:nth-child(3) 
+                background-size: 91% 1px
+
+                & + span
+                    background-size: 88% 1px
+                    background-position: right
+
+                    &:before
+                        display: none
+                
+                & ~ *
+                    background: linear-gradient(transparentize($white, 0.6), transparentize($white, 0.6)) no-repeat
+
+                    &:before
+                        color: $white
+
+            & + span
+                left: $spacing-5 + ($form-progress-row * 3)
+
+    .progress-indicator
+        width: $progress-indicator-dimension
+        height: $progress-indicator-dimension
+        border-radius: 50%
+        background: 
+        display: inline-block
+        border: $thin-border solid $light-mint
+        background: transparentize($light-mint, 0.7)
+        position: absolute
+        top: 0
+        left: $spacing-5
+
+        &:before
+            content: ''
+            width: .4em
+            height: .4em
+            background: $white
+            border-radius: 50%
+            display: inline-block
+            position: absolute
+            top: 43%
+            left: 41%
+            @include scale(.5)
+
+        &:after
+            content: ''
+            width: $progress-indicator-dimension * 2
+            height: $progress-indicator-dimension * 2
+            display: inline-block
+            border: 0 solid
+            border-radius: 50%
+            position: absolute
+            top: -54%
+            left: -21px
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyNzcuNDY0cHgiIGhlaWdodD0iMzA4LjQ1MXB4IiB2aWV3Qm94PSIwIDAgMjc3LjQ2NCAzMDguNDUxIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyNzcuNDY0IDMwOC40NTEiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxyZWN0IHg9IjExOS44NCIgeT0iMjcuMzU4IiB0cmFuc2Zvcm09Im1hdHJpeCgwLjk5MjEgLTAuMTI1MyAwLjEyNTMgMC45OTIxIC0zLjY2NDkgMTUuNzEzMikiIGZpbGw9IiM4RDkxNzgiIHdpZHRoPSI2LjU0OSIgaGVpZ2h0PSIxOS4yODEiLz48cmVjdCB4PSIxMDYuNzk5IiB5PSIzMC41ODciIHRyYW5zZm9ybT0ibWF0cml4KDAuOTY4NiAtMC4yNDg3IDAuMjQ4NyAwLjk2ODYgLTYuNTQ1NyAyOC42MzU3KSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ4IiBoZWlnaHQ9IjE5LjI4MSIvPjxyZWN0IHg9Ijk0LjI2NSIgeT0iMzUuNDI0IiB0cmFuc2Zvcm09Im1hdHJpeCgwLjkyOTggLTAuMzY4MiAwLjM2ODIgMC45Mjk4IC05Ljc0MDEgMzkuMDc1NCkiIGZpbGw9IiM4RDkxNzgiIHdpZHRoPSI2LjU0OCIgaGVpZ2h0PSIxOS4yODEiLz48cmVjdCB4PSI4Mi40MzciIHk9IjQxLjc5NCIgdHJhbnNmb3JtPSJtYXRyaXgoMC44NzYzIC0wLjQ4MTggMC40ODE4IDAuODc2MyAtMTQuMTc3NiA0Ny42NjI1KSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ3IiBoZWlnaHQ9IjE5LjI4MiIvPjxyZWN0IHg9IjcxLjUiIHk9IjQ5LjU5NyIgdHJhbnNmb3JtPSJtYXRyaXgoMC44MDkgLTAuNTg3OSAwLjU4NzkgMC44MDkgLTIwLjUzOSA1NS4yNzI2KSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ4IiBoZWlnaHQ9IjE5LjI4MiIvPjxyZWN0IHg9IjYxLjYyNyIgeT0iNTguNzA5IiB0cmFuc2Zvcm09Im1hdHJpeCgwLjcyODkgLTAuNjg0NiAwLjY4NDYgMC43Mjg5IC0yOS4xOTkgNjIuOTYwOSkiIGZpbGw9IiM4RDkxNzgiIHdpZHRoPSI2LjU0NyIgaGVpZ2h0PSIxOS4yODEiLz48cmVjdCB4PSI1Mi45NzUiIHk9IjY4Ljk4NyIgdHJhbnNmb3JtPSJtYXRyaXgoMC42Mzc0IC0wLjc3MDYgMC43NzA2IDAuNjM3NCAtNDAuMTg5OCA3MS44NTU5KSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ3IiBoZWlnaHQ9IjE5LjI4MSIvPjxyZWN0IHg9IjQ1LjY3OCIgeT0iODAuMjY3IiB0cmFuc2Zvcm09Im1hdHJpeCgwLjUzNTggLTAuODQ0NCAwLjg0NDQgMC41MzU4IC01My4xOTA1IDgzLjA3MTcpIiBmaWxsPSIjOEQ5MTc4IiB3aWR0aD0iNi41NDciIGhlaWdodD0iMTkuMjgyIi8+PHJlY3QgeD0iMzkuODUzIiB5PSI5Mi4zNzQiIHRyYW5zZm9ybT0ibWF0cml4KDAuNDI1OCAtMC45MDQ4IDAuOTA0OCAwLjQyNTggLTY3LjU0MSA5Ny41OTY2KSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ4IiBoZWlnaHQ9IjE5LjI4MiIvPjxyZWN0IHg9IjM1LjU5MSIgeT0iMTA1LjExNSIgdHJhbnNmb3JtPSJtYXRyaXgoMC4zMDkgLTAuOTUxIDAuOTUxIDAuMzA5IC04Mi4yODQxIDExNi4yNTQ4KSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ4IiBoZWlnaHQ9IjE5LjI4MiIvPjxyZWN0IHg9IjMyLjk2IiB5PSIxMTguMjg5IiB0cmFuc2Zvcm09Im1hdHJpeCgwLjE4NzMgLTAuOTgyMyAwLjk4MjMgMC4xODczIC05Ni4yMTk5IDEzOS41NTU4KSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ3IiBoZWlnaHQ9IjE5LjI4MyIvPjxyZWN0IHg9IjMyLjAwMSIgeT0iMTMxLjY5IiB0cmFuc2Zvcm09Im1hdHJpeCgwLjA2MjYgLTAuOTk4IDAuOTk4IDAuMDYyNiAtMTA3Ljk4ODggMTY3LjY4MjgpIiBmaWxsPSIjOEQ5MTc4IiB3aWR0aD0iNi41NDgiIGhlaWdodD0iMTkuMjgzIi8+PHJlY3QgeD0iMzIuNzI4IiB5PSIxNDUuMTA1IiB0cmFuc2Zvcm09Im1hdHJpeCgtMC4wNjI5IC0wLjk5OCAwLjk5OCAtMC4wNjI5IC0xMTYuMTcxNiAyMDAuNDE2NykiIGZpbGw9IiM4RDkxNzgiIHdpZHRoPSI2LjU0OCIgaGVpZ2h0PSIxOS4yODMiLz48cmVjdCB4PSIzNS4xMzIiIHk9IjE1OC4zMjMiIHRyYW5zZm9ybT0ibWF0cml4KC0wLjE4NzUgLTAuOTgyMyAwLjk4MjMgLTAuMTg3NSAtMTE5LjM4MDMgMjM3LjE3ODMpIiBmaWxsPSIjOEQ5MTc4IiB3aWR0aD0iNi41NDgiIGhlaWdodD0iMTkuMjgyIi8+PHJlY3QgeD0iMzkuMTczIiB5PSIxNzEuMTM2IiB0cmFuc2Zvcm09Im1hdHJpeCgtMC4zMDkgLTAuOTUxIDAuOTUxIC0wLjMwOSAtMTE2LjM2MzQgMjc3LjAxMjYpIiBmaWxsPSIjOEQ5MTc4IiB3aWR0aD0iNi41NDgiIGhlaWdodD0iMTkuMjgyIi8+PHJlY3QgeD0iNDQuNzg4IiB5PSIxODMuMzQxIiB0cmFuc2Zvcm09Im1hdHJpeCgtMC40MjU4IC0wLjkwNDggMC45MDQ4IC0wLjQyNTggLTEwNi4wODQyIDMxOC42NDQ1KSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ4IiBoZWlnaHQ9IjE5LjI4MiIvPjxyZWN0IHg9IjUxLjg4OCIgeT0iMTk0Ljc0NiIgdHJhbnNmb3JtPSJtYXRyaXgoLTAuNTM1OCAtMC44NDQzIDAuODQ0MyAtMC41MzU4IC04Ny44NDg0IDM2MC40ODAxKSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ4IiBoZWlnaHQ9IjE5LjI4MiIvPjxyZWN0IHg9IjYwLjM2MiIgeT0iMjA1LjE3MiIgdHJhbnNmb3JtPSJtYXRyaXgoLTAuNjM3NCAtMC43NzA2IDAuNzcwNiAtMC42Mzc0IC02MS4zMjc0IDQwMC43NjQzKSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ4IiBoZWlnaHQ9IjE5LjI4MiIvPjxyZWN0IHg9IjcwLjA3NiIgeT0iMjE0LjQ1MyIgdHJhbnNmb3JtPSJtYXRyaXgoLTAuNzI4OSAtMC42ODQ2IDAuNjg0NiAtMC43Mjg5IC0yNi41OTExIDQzNy42NTg4KSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ4IiBoZWlnaHQ9IjE5LjI4MSIvPjxyZWN0IHg9IjgwLjg3NiIgeT0iMjIyLjQ0MyIgdHJhbnNmb3JtPSJtYXRyaXgoLTAuODA5IC0wLjU4NzggMC41ODc4IC0wLjgwOSAxNS43OTk0IDQ2OS4zMDIxKSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ5IiBoZWlnaHQ9IjE5LjI4MiIvPjxyZWN0IHg9IjkyLjU5MiIgeT0iMjI5LjAxNyIgdHJhbnNmb3JtPSJtYXRyaXgoLTAuODc2MyAtMC40ODE4IDAuNDgxOCAtMC44NzYzIDY0Ljg5ODcgNDkzLjk4KSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ5IiBoZWlnaHQ9IjE5LjI4MiIvPjxyZWN0IHg9IjEwNS4wNDEiIHk9IjIzNC4wNyIgdHJhbnNmb3JtPSJtYXRyaXgoLTAuOTI5OCAtMC4zNjgxIDAuMzY4MSAtMC45Mjk4IDExOS4zMjcgNTEwLjE4MjMpIiBmaWxsPSIjOEQ5MTc4IiB3aWR0aD0iNi41NSIgaGVpZ2h0PSIxOS4yODQiLz48cmVjdCB4PSIxMTguMDI1IiB5PSIyMzcuNTI0IiB0cmFuc2Zvcm09Im1hdHJpeCgtMC45Njg2IC0wLjI0ODYgMC4yNDg2IC0wLjk2ODYgMTc3LjM1NDkgNTE2LjcyNDYpIiBmaWxsPSIjOEQ5MTc4IiB3aWR0aD0iNi41NDkiIGhlaWdodD0iMTkuMjg0Ii8+PHJlY3QgeD0iMTMxLjMzOSIgeT0iMjM5LjMyMiIgdHJhbnNmb3JtPSJtYXRyaXgoLTAuOTkyMSAtMC4xMjUyIDAuMTI1MiAtMC45OTIxIDIzNy4wMDA0IDUxMi44MjI5KSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ5IiBoZWlnaHQ9IjE5LjI4NCIvPjxyZWN0IHg9IjE0NC43NzQiIHk9IjIzOS40MzgiIGZpbGw9IiM4RDkxNzgiIHdpZHRoPSI2LjU0OSIgaGVpZ2h0PSIxOS4yODQiLz48cG9seWdvbiBmaWxsPSIjOEQ5MTc4IiBwb2ludHM9IjE1Ni45MzIsMjM4LjM1NyAxNjMuNDI5LDIzNy41MzUgMTY1Ljg1LDI1Ni42NjcgMTU5LjM1MSwyNTcuNDg0ICIvPjxwb2x5Z29uIGZpbGw9IiM4RDkxNzgiIHBvaW50cz0iMTY4Ljg2MiwyMzUuNzU5IDE3NS4yMDUsMjM0LjEzIDE4MC4wMDQsMjUyLjgwOCAxNzMuNjU5LDI1NC40MzMgIi8+PHJlY3QgeD0iMTgzLjY5MyIgeT0iMjI5LjgwMyIgdHJhbnNmb3JtPSJtYXRyaXgoLTAuOTI5NyAwLjM2ODIgLTAuMzY4MiAtMC45Mjk3IDQ0OC45Njc3IDM5My4yMjExKSIgZmlsbD0iIzhEOTE3OCIgd2lkdGg9IjYuNTQ4IiBoZWlnaHQ9IjE5LjI4NSIvPjxwb2x5Z29uIGZpbGw9IiM4RDkxNzgiIHBvaW50cz0iMTkxLjI4LDIyNi4yMDQgMTk3LjAxOCwyMjMuMDQ5IDIwNi4zMTIsMjM5Ljk0NyAyMDAuNTcxLDI0My4wOTkgIi8+PHBvbHlnb24gZmlsbD0iIzhEOTE3OCIgcG9pbnRzPSIyMDEuNDE1LDIxOS4zOTcgMjA2LjcxMiwyMTUuNTQ4IDIxOC4wNTEsMjMxLjE0OCAyMTIuNzUsMjM0Ljk5NSAiLz48cG9seWdvbiBmaWxsPSIjOEQ5MTc4IiBwb2ludHM9IjIxMC42MTcsMjExLjM3NSAyMTUuMzksMjA2Ljg5MiAyMjguNTk1LDIyMC45NDcgMjIzLjgxOCwyMjUuNDI4ICIvPjxwb2x5Z29uIGZpbGw9IiM4RDkxNzgiIHBvaW50cz0iMjE4Ljc0MSwyMDIuMjYxIDIyMi45MTUsMTk3LjIxNSAyMzcuNzc4LDIwOS41MDUgMjMzLjU5OSwyMTQuNTQ5ICIvPjxwb2x5Z29uIGZpbGw9IiM4RDkxNzgiIHBvaW50cz0iMjI1LjY1OSwxOTIuMjAyIDIyOS4xNjcsMTg2LjY3MiAyNDUuNDU0LDE5Ny4wMDIgMjQxLjk0LDIwMi41MyAiLz48cG9seWdvbiBmaWxsPSIjOEQ5MTc4IiBwb2ludHM9IjIzMS4yNiwxODEuMzU0IDIzNC4wNDksMTc1LjQyOSAyNTEuNTAyLDE4My42MzYgMjQ4LjcwOCwxODkuNTYgIi8+PHBvbHlnb24gZmlsbD0iIzhEOTE3OCIgcG9pbnRzPSIyMzUuNDU4LDE2OS44OTEgMjM3LjQ4NCwxNjMuNjYyIDI1NS44MjgsMTY5LjYxNyAyNTMuNzk3LDE3NS44NDQgIi8+PHBvbHlnb24gZmlsbD0iIzhEOTE3OCIgcG9pbnRzPSIyMzguMTg3LDE1Ny45OTEgMjM5LjQxNywxNTEuNTU4IDI1OC4zNjIsMTU1LjE2NiAyNTcuMTI3LDE2MS41OTkgIi8+PHBvbHlnb24gZmlsbD0iIzhEOTE3OCIgcG9pbnRzPSIyMzkuNDAzLDE0NS44NDMgMjM5LjgxNiwxMzkuMzA3IDI1OS4wNjQsMTQwLjUxMiAyNTguNjQ2LDE0Ny4wNDkgIi8+PHBvbHlnb24gZmlsbD0iIzhEOTE3OCIgcG9pbnRzPSIyMzkuMDg2LDEzMy42MzggMjM4LjY3NywxMjcuMTAyIDI1Ny45MjUsMTI1Ljg4NSAyNTguMzI5LDEzMi40MjMgIi8+PHBvbHlnb24gZmlsbD0iIzhEOTE3OCIgcG9pbnRzPSIyMzcuMjQzLDEyMS41NyAyMzYuMDE3LDExNS4xMzYgMjU0Ljk2MSwxMTEuNTE3IDI1Ni4xODEsMTE3Ljk1MyAiLz48cG9seWdvbiBmaWxsPSIjOEQ5MTc4IiBwb2ludHM9IjIzMy45MDEsMTA5LjgyNyAyMzEuODc5LDEwMy41OTggMjUwLjIyLDk3LjYzMyAyNTIuMjM3LDEwMy44NjUgIi8+PHBvbHlnb24gZmlsbD0iIzhEOTE3OCIgcG9pbnRzPSIyMjkuMTE0LDk4LjU5NiAyMjYuMzI4LDkyLjY3IDI0My43NzYsODQuNDUzIDI0Ni41NTgsOTAuMzgzICIvPjxwb2x5Z29uIGZpbGw9IiM4RDkxNzgiIHBvaW50cz0iMjIyLjk1OCw4OC4wNTQgMjE5LjQ1LDgyLjUyMyAyMzUuNzMxLDcyLjE4NSAyMzkuMjM1LDc3LjcxOSAiLz48cG9seWdvbiBmaWxsPSIjOEQ5MTc4IiBwb2ludHM9IjIxNS41MjgsNzguMzY2IDIxMS4zNTUsNzMuMzE5IDIyNi4yMTEsNjEuMDIxIDIzMC4zODIsNjYuMDczICIvPjxwb2x5Z29uIGZpbGw9IiM4RDkxNzgiIHBvaW50cz0iMjA2Ljk0Myw2OS42ODYgMjAyLjE3LDY1LjIwMiAyMTUuMzY5LDUxLjEzOSAyMjAuMTM5LDU1LjYyOCAiLz48cG9seWdvbiBmaWxsPSIjOEQ5MTc4IiBwb2ludHM9IjE5Ny4zMzcsNjIuMTUgMTkyLjA0MSw1OC4zIDIwMy4zNzMsNDIuNjkzIDIwOC42NjcsNDYuNTQ5ICIvPjwvc3ZnPg==)
+            background-size: cover

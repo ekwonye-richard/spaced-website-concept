@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MainLoader from '../../components/MainLoader';
 import Landing from '../Landing';
-import BookDate from '../BookDate';
+import BookFlight from '../BookFlight';
 
 class Main extends Component {
   constructor() {
@@ -22,9 +22,9 @@ class Main extends Component {
   gotoBooking() {
     this.setState({ exitLanding: true });
 
-    this.exitLandingTimeout = setTimeout(() => {
+    this.tt = setTimeout(() => {
       this.setState({
-        progress: 'bookDate',
+        progress: 'bookFlight',
         exitLanding: false
       });
     }, 700);
@@ -38,7 +38,7 @@ class Main extends Component {
 
   componentWillUnmount() {
     clearTimeout(this.landingTimeout);
-    clearTimeout(this.exitLandingTimeou);
+    clearTimeout(this.exitLandingTimeout);
   }
 
   render() {
@@ -56,7 +56,9 @@ class Main extends Component {
           />
         )}
 
-        {progress === 'bookDate' && <BookDate gotoLanding={this.gotoLanding} />}
+        {progress === 'bookFlight' && (
+          <BookFlight gotoLanding={this.gotoLanding} />
+        )}
       </div>
     );
   }
