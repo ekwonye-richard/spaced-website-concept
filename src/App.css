@@ -53,6 +53,7 @@
 }
 
 .equalizer {
+  cursor: pointer;
   position: absolute;
   right: 0;
   -moz-transform: translate(0, -10px);

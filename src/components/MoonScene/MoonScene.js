@@ -5,6 +5,10 @@ import OBJ from '../../shared/Moon_Model/moon.obj';
 import TXT_IMG from '../../shared/Moon_Model/MoonMap2_2500x1250.jpg';
 import BUMP_MAP from '../../shared/Moon_Model/moon-normal.jpg';
 
+import texture_image from '../../shared/images/planet-512.jpg';
+import nMap from '../../shared/images/normal-map-512.jpg';
+import sMap from '../../shared/images/water-map-512.jpg';
+
 const CANVAS_WIDTH = 1440;
 const CANVAS_HEIGHT = 1050;
 class MoonScene extends Component {
@@ -34,20 +38,24 @@ class MoonScene extends Component {
     this.refs.threeWrapper.appendChild(this.renderer.domElement);
 
     this.camera.position.z = 215;
+    this.camera.lookAt(this.scene.position);
 
-    const ambientLight = new THREE.AmbientLight(0xcccccc, 0.05);
-    this.scene.add(ambientLight);
+    const ambientLight = new THREE.AmbientLight(0x7d7874, 0.5);
+    // this.scene.add(ambientLight);
 
-    const spotLight = new THREE.SpotLight(0xffffff, 1.2);
-    // spotLight.position.set(590, 180, 90);
-    spotLight.position.set(35000, 10000, -1200);
-    spotLight.castShadow = true;
-    spotLight.penumbra = 0;
-    spotLight.distance = 40000;
-    // spotLight.distance = 5000;
-    // spotLight.decay = 10;
-
+    let spotLight = new THREE.SpotLight(0xffffff);
+    spotLight.position.set(40, 40, 70);
+    spotLight.intensity = 2;
     this.scene.add(spotLight);
+
+    // const spotLight = new THREE.SpotLight(0xffffff, 0.4);
+    // spotLight.position.set(590, 180, 500);
+    // spotLight.castShadow = true;
+
+    // spotLight.power = 8;
+    // spotLight.distance = 80000;
+
+    // this.scene.add(spotLight);
 
     const scene = this.scene;
     const threeLoader = THREE;
@@ -94,6 +102,45 @@ class MoonScene extends Component {
       });
     });
 
+    var planetGeometry = new THREE.SphereGeometry(60, 300, 300);
+
+    //Load the planet textures
+    var texture = THREE.ImageUtils.loadTexture(texture_image);
+    var normalmap = THREE.ImageUtils.loadTexture(nMap);
+    var specmap = THREE.ImageUtils.loadTexture(sMap);
+
+    var planetMaterial = new THREE.MeshPhongMaterial();
+    planetMaterial.map = texture;
+
+    planetMaterial.specularMap = specmap;
+    planetMaterial.specular = new THREE.Color(0xff0000);
+    planetMaterial.shininess = 1;
+
+    planetMaterial.normalMap = normalmap;
+    planetMaterial.normalScale.set(-0.3, -0.3);
+
+    var planet = new THREE.Mesh(planetGeometry, planetMaterial);
+
+    //here we allow the texture/normal/specular maps to wrap
+    planet.material.map.wrapS = THREE.RepeatWrapping;
+    planet.material.map.wrapT = THREE.RepeatWrapping;
+    planet.material.normalMap.wrapS = THREE.RepeatWrapping;
+    planet.material.normalMap.wrapT = THREE.RepeatWrapping;
+    planet.material.specularMap.wrapS = THREE.RepeatWrapping;
+    planet.material.specularMap.wrapT = THREE.RepeatWrapping;
+
+    //here we repeat the texture/normal/specular maps twice along X
+    planet.material.map.repeat.set(2, 1);
+    planet.material.normalMap.repeat.set(2, 1);
+    planet.material.specularMap.repeat.set(2, 1);
+
+    planet.position.x = 0;
+    planet.position.y = 0;
+    planet.position.z = 0;
+    planet.name = 'planet';
+
+    // scene.add(planet);
+
     this.renderer.setPixelRatio(window.devicePixelRatio);
 
     this.animate();
@@ -108,7 +155,8 @@ class MoonScene extends Component {
       return;
     }
 
-    const model = this.scene.getObjectByName('moonModel');
+    // const model = this.scene.getObjectByName('moonModel');
+    const model = this.scene.getObjectByName('planet');
     requestAnimationFrame(this.modelAnimateIn);
 
     if (model) {
@@ -131,7 +179,8 @@ class MoonScene extends Component {
     }
 
     if (previousMousePosition) {
-      const model = this.scene.getObjectByName('moonModel');
+      // const model = this.scene.getObjectByName('moonModel');
+      const model = this.scene.getObjectByName('planet');
 
       const deltaMove = {
         x: e.screenX - previousMousePosition.x,

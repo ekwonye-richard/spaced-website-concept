@@ -8,7 +8,7 @@ class Main extends Component {
     super();
 
     this.state = {
-      progress: 'loading'
+      progress: 'landing'
     };
 
     this.gotoBooking = this.gotoBooking.bind(this);
