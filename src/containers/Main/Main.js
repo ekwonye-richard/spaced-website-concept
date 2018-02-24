@@ -45,21 +45,28 @@ class Main extends Component {
     const { progress } = this.state;
 
     return (
-      <div className="main-container">
-        {progress === 'loading' && <MainLoader />}
+      <React.Fragment>
+        <div className="main-container">
+          {progress === 'loading' && <MainLoader />}
 
-        {(progress === 'loading' || progress === 'landing') && (
-          <Landing
-            gotoNext={this.gotoBooking}
-            isLoading={progress === 'loading'}
-            beginExit={this.state.exitLanding}
-          />
-        )}
+          {(progress === 'loading' || progress === 'landing') && (
+            <Landing
+              gotoNext={this.gotoBooking}
+              isLoading={progress === 'loading'}
+              beginExit={this.state.exitLanding}
+            />
+          )}
 
-        {progress === 'bookFlight' && (
-          <BookFlight gotoLanding={this.gotoLanding} />
-        )}
-      </div>
+          {progress === 'bookFlight' && (
+            <BookFlight gotoLanding={this.gotoLanding} />
+          )}
+        </div>
+        <div className="sm-scr mega-text">
+          OOPS! <br /> <br />
+          THIS EXPERIMENT IS NOT <br />
+          OPTIMIZED FOR SMALL SCREENS.
+        </div>
+      </React.Fragment>
     );
   }
 }

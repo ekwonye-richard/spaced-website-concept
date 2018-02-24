@@ -4,10 +4,20 @@
 }
 
 .mega-text {
-  font-size: 58px;
+  font-size: 23.2px;
   font-family: montserrat;
   font-weight: 600;
   letter-spacing: 10px;
+}
+@media (min-width: 576px) {
+  .mega-text {
+    font-size: 34.8px;
+  }
+}
+@media (min-width: 992px) {
+  .mega-text {
+    font-size: 58px;
+  }
 }
 
 .location-widget {
@@ -413,8 +423,13 @@ a:-moz-focusring {
 .app-title {
   display: inline-block;
   vertical-align: top;
-  width: 20%;
+  width: 15%;
   letter-spacing: 15px;
+}
+@media (min-width: 1200px) {
+  .app-title {
+    width: 20%;
+  }
 }
 .app-title h2 {
   cursor: pointer;
@@ -423,29 +438,50 @@ a:-moz-focusring {
 .top-nav {
   display: inline-block;
   vertical-align: top;
-  width: 70%;
+  width: 80%;
   text-align: center;
   padding-top: 0.2em;
+}
+@media (min-width: 1200px) {
+  .top-nav {
+    width: 75%;
+  }
 }
 .top-nav .menu-item {
   font-family: Montserrat;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 5px;
-  padding: 0 15px;
+  letter-spacing: 0.3em;
+  padding: 0 10px;
   cursor: pointer;
 }
+@media (min-width: 1200px) {
+  .top-nav .menu-item {
+    letter-spacing: 5px;
+    padding: 0 15px;
+  }
+}
 .top-nav .menu-item:not(:first-child) {
-  margin-left: 15px;
+  margin-left: 10px;
+}
+@media (min-width: 1200px) {
+  .top-nav .menu-item:not(:first-child) {
+    margin-left: 15px;
+  }
 }
 .top-nav .menu-item:not(:last-child) {
-  margin-right: 15px;
+  margin-right: 10px;
+}
+@media (min-width: 1200px) {
+  .top-nav .menu-item:not(:last-child) {
+    margin-right: 15px;
+  }
 }
 
 .search-control {
   display: inline-block;
   vertical-align: top;
-  width: 10%;
+  width: 5%;
   text-align: right;
   margin-top: 0.5em;
 }
@@ -506,8 +542,29 @@ a:-moz-focusring {
 
 .main-container {
   position: relative;
-  padding: 65px 75px;
+  padding: 65px 40px;
   overflow: hidden;
+  display: none;
+}
+@media (min-width: 992px) {
+  .main-container {
+    display: block;
+  }
+}
+@media (min-width: 1200px) {
+  .main-container {
+    padding: 65px 75px;
+  }
+}
+
+.sm-scr {
+  text-align: center;
+  padding: 40px 45px;
+}
+@media (min-width: 992px) {
+  .sm-scr {
+    display: none;
+  }
 }
 
 .content-wrapper {
@@ -659,7 +716,12 @@ a:-moz-focusring {
   animation-iteration-count: 1;
 }
 .hero-footer .info-col:not(:last-child) {
-  margin-right: 120px;
+  margin-right: 60px;
+}
+@media (min-width: 1200px) {
+  .hero-footer .info-col:not(:last-child) {
+    margin-right: 120px;
+  }
 }
 .hero-footer .info-col h5 {
   letter-spacing: 0.25em;
@@ -1043,6 +1105,9 @@ a:-moz-focusring {
 }
 .scene-wrapper.begin-exit {
   opacity: 0;
+}
+.scene-wrapper canvas {
+  float: right;
 }
 
 .show-wrapper {

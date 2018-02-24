@@ -9,8 +9,11 @@
 .app-title
     display: inline-block
     vertical-align: top
-    width: 20%
+    width: 15%
     letter-spacing: $spacing-15
+
+    @include respond-to('size-xl')
+       width: 20%
 
     h2
         cursor: pointer
@@ -18,26 +21,36 @@
 .top-nav
     display: inline-block
     vertical-align: top
-    width: 75%
+    width: 80%
     text-align: center
     padding-top: .2em
 
     @include respond-to('size-xl')
-       width: 70%
+       width: 75%
 
     .menu-item
         font-family: Montserrat
         font-size: $medium-text
         font-weight: $bold-6
-        letter-spacing: $spacing-5
-        padding: $zero $spacing-15
-        cursor: pointer        
+        letter-spacing: .3em
+        padding: $zero $spacing-10
+        cursor: pointer
+
+        @include respond-to('size-xl')
+            letter-spacing: $spacing-5
+            padding: $zero $spacing-15     
 
         &:not(:first-child)
-            margin-left: $spacing-15
+            margin-left: $spacing-10
+
+            @include respond-to('size-xl')
+                margin-left: $spacing-15
 
         &:not(:last-child)
-            margin-right: $spacing-15
+            margin-right: $spacing-10
+
+            @include respond-to('size-xl')
+                margin-right: $spacing-15
 
 .search-control
     display: inline-block
@@ -45,9 +58,6 @@
     width: 5%
     text-align: right
     margin-top: .5em
-
-    @include respond-to('size-xl')
-       width: 10%
 
     img
         width: 1.5em

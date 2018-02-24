@@ -5,8 +5,21 @@
 
 .main-container
     position: relative
-    padding: $spacing-65 $spacing-75
+    padding: $spacing-65 $spacing-40
     overflow: hidden
+    display: none
+
+    @include respond-to('size-lg')
+        display: block
+
+    @include respond-to('size-xl')
+        padding: $spacing-65 $spacing-75
+
+.sm-scr
+    text-align: center
+    padding: $spacing-40 $spacing-45
+    @include respond-to('size-lg')
+        display: none
     
 .content-wrapper
     position: relative
@@ -60,7 +73,10 @@
             @include animation(1.4s, .3s, hero-footer-animation, ease-out)
 
         &:not(:last-child)
-            margin-right: $spacing-120
+            margin-right: $spacing-60
+
+            @include respond-to('size-xl')
+                margin-right: $spacing-120
 
         h5
             letter-spacing: .25em

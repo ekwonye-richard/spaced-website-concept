@@ -2,10 +2,16 @@
   display: none
   
 .mega-text
-  font-size: $mega-text-size
+  font-size: $mega-text-size * .4
   font-family: montserrat
   font-weight: $bold-6
   letter-spacing: $spacing-10
+
+  @include respond-to('size-sm')
+    font-size: $mega-text-size * .6
+
+  @include respond-to('size-lg')
+    font-size: $mega-text-size
 
 .location-widget
   font-family: montserrat
