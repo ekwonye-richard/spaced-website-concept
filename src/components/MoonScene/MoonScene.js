@@ -4,6 +4,7 @@ import TXT_IMG from '../../shared/Moon_Model/MoonMap2_2500x1250.jpg';
 
 const CANVAS_WIDTH = 1440;
 const CANVAS_HEIGHT = 1050;
+
 class MoonScene extends Component {
   constructor() {
     super();
@@ -57,7 +58,7 @@ class MoonScene extends Component {
     moon.position.y = window.innerHeight < 840 ? 10 : 0;
     moon.position.z = 0;
     moon.rotation.x = 0.22;
-    moon.rotation.y = -9;
+    moon.rotation.y = -9.5;
     moon.name = 'moon';
 
     this.scene.add(moon);

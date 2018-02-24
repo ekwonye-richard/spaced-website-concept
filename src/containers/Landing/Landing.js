@@ -3,10 +3,14 @@ import MoonScene from '../../components/MoonScene';
 import Header from '../../components/Header';
 import LandingForm from '../../components/LandingForm';
 import ScrollTrack from '../../components/ScrollTrack';
+import { isMobile, isWebGLEnabled } from '../../shared/utils';
 
 const Landing = ({ isLoading, gotoNext, beginExit, gotoLanding }) => (
   <React.Fragment>
-    <MoonScene isReady={!isLoading} beginExit={beginExit} />
+    {!isMobile() &&
+      isWebGLEnabled() && (
+        <MoonScene isReady={!isLoading} beginExit={beginExit} />
+      )}
     <div
       className={`landing-wrapper content-wrapper ${
         isLoading ? 'hidden' : ''
