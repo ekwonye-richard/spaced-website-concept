@@ -2,4 +2,4 @@
 
 [Live version](https://ekwonye-richard.github.io/spaced-website-concept/)
 
-Developed with React Js and Three js.
+Built with React Js and Three js.
