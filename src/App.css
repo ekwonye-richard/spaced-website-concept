@@ -1195,8 +1195,8 @@ a:-moz-focusring {
   background-position: 80% 50%;
 }
 .control-wrapper.mint-control {
-  border-color: rgba(62, 241, 220, 0.25);
-  background: rgba(62, 241, 220, 0.02);
+  border-color: rgba(62, 241, 220, 0.55);
+  background: rgba(62, 241, 220, 0.25);
 }
 .control-wrapper.mint-control [class^='ctrl-']:before,
 .control-wrapper.mint-control [class^='ctrl-']:after {
