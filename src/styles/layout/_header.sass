@@ -18,9 +18,12 @@
 .top-nav
     display: inline-block
     vertical-align: top
-    width: 70%
+    width: 75%
     text-align: center
     padding-top: .2em
+
+    @include respond-to('size-xl')
+       width: 70%
 
     .menu-item
         font-family: Montserrat
@@ -39,9 +42,12 @@
 .search-control
     display: inline-block
     vertical-align: top
-    width: 10%
+    width: 5%
     text-align: right
     margin-top: .5em
+
+    @include respond-to('size-xl')
+       width: 10%
 
     img
         width: 1.5em

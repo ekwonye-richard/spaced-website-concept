@@ -1,21 +1,25 @@
 .scene-wrapper
-  position: absolute
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  z-index: 0
-  @include transition(all, .5s, ease-out)
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 0
+    @include transition(all, .5s, ease-out)
 
-  &.begin-exit
-    opacity: 0
+    &.begin-exit
+        opacity: 0
+
+    canvas
+        float: right
+  
 
 .show-wrapper
-  @include animation(0s, 1.8s, scene-wrapper-animation, ease-in)
+    @include animation(0s, 1.8s, scene-wrapper-animation, ease-in)
 
 @include keyframe(scene-wrapper-animation)
 	0%
-    opacity: 0
+        opacity: 0
 
 	100%
-    opacity: 1
+        opacity: 1
