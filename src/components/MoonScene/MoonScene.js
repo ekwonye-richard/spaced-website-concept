@@ -12,6 +12,7 @@ class MoonScene extends Component {
     this.animate = this.animate.bind(this);
     this.modelAnimateIn = this.modelAnimateIn.bind(this);
     this.onMouseMove = this.onMouseMove.bind(this);
+    this.setMoonScale = this.setMoonScale.bind(this);
 
     this.state = {
       wrapperClass: ''
@@ -39,28 +40,26 @@ class MoonScene extends Component {
     spotLight.intensity = 2;
     this.scene.add(spotLight);
 
-    var moonGeometry = new THREE.SphereGeometry(65, 350, 350);
+    const moonGeometry = new THREE.SphereGeometry(65, 350, 350);
+    const texture = THREE.ImageUtils.loadTexture(TXT_IMG);
 
-    var texture = THREE.ImageUtils.loadTexture(TXT_IMG);
-
-    var moonMaterial = new THREE.MeshPhongMaterial();
+    let moonMaterial = new THREE.MeshPhongMaterial();
     moonMaterial.map = texture;
-    moonMaterial.shininess = 1;
+    moonMaterial.shininess = 2;
     moonMaterial.normalScale.set(-0.3, -0.3);
 
-    var moon = new THREE.Mesh(moonGeometry, moonMaterial);
+    let moon = new THREE.Mesh(moonGeometry, moonMaterial);
 
     moon.material.map.wrapS = THREE.RepeatWrapping;
     moon.material.map.wrapT = THREE.RepeatWrapping;
     moon.material.map.repeat.set(2, 1);
 
     moon.position.x = 15;
-    moon.position.y = window.innerHeight < 840 ? 10 : 0;
+    moon.position.y = window.innerHeight < 840 ? 10 : 5;
     moon.position.z = 0;
     moon.rotation.x = 0.22;
     moon.rotation.y = -9.5;
     moon.name = 'moon';
-
     this.scene.add(moon);
 
     this.renderer.setPixelRatio(window.devicePixelRatio);
@@ -68,6 +67,13 @@ class MoonScene extends Component {
     this.animate();
     this.props.isReady && this.modelAnimateIn();
     window.addEventListener('mousemove', this.onMouseMove);
+    window.addEventListener('resize', this.setMoonScale);
+  }
+
+  setMoonScale() {
+    const model = this.scene.getObjectByName('moon');
+    const isRetina = window.innerWidth > 1600;
+    isRetina ? model.scale.set(1.2, 1.2, 1.2) : model.scale.set(1, 1, 1);
   }
 
   modelAnimateIn() {
@@ -132,6 +138,7 @@ class MoonScene extends Component {
 
   componentWillUnmount() {
     window.removeEventListener('mousemove', this.onMouseMove);
+    window.removeEventListener('resize', this.setMoonScale);
   }
 
   render() {
